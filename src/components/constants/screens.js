@@ -1,4 +1,5 @@
 export const Screens = {
   Initial: 'Initial',
-  SketchLibrary: 'SketchLibrary'
+  SketchLibrary: 'SketchLibrary',
+  Main: 'Main'
 }
