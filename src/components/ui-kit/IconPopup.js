@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const IconPopup = ({ icon, activeIcon, children, disabled = false, iconClassNames = '', alignSide = 'left' }) => {
   const [opened, setOpened] = useState(false)
+  const ref = useRef(null)
 
   const toogle = (value) => {
     if (!disabled) {
@@ -9,8 +10,24 @@ export const IconPopup = ({ icon, activeIcon, children, disabled = false, iconCl
     }
   }
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!opened) {
+        return
+      }
+
+      if (ref.current && !ref.current.contains(event.target)) {
+        setOpened(false)
+      }
+    }
+    document.addEventListener('click', handleClickOutside, true)
+    return () => {
+      document.removeEventListener('click', handleClickOutside, true)
+    };
+  }, [opened]);
+
   return (
-    <div className="relative">
+    <div className="relative" ref={ref}>
       <img
         src={opened ? activeIcon : icon}
         alt=""
