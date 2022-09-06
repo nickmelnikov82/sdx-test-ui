@@ -37,3 +37,8 @@ textarea:focus, input:focus{
 .hide-arrows[type=number] {
   -moz-appearance: textfield;
 }
+
+.screen {
+  width: 100vw;
+  height: calc(100vh - 53.33px);
+}

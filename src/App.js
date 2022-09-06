@@ -1,11 +1,15 @@
 import './App.scss';
 import { Header } from "./components/header";
-import { useState } from "react";
+import { memo, useState } from "react";
+import { InitialScreen } from "./components/screens/InitialScreen";
+import { Screens } from "./components/constants/screens";
+import { SketchLibraryScreen } from "./components/screens/SketchLibraryScreen";
 
-function App() {
+export const App = () => {
+  const [screen, setScreen] = useState(Screens.Initial)
   const [measurement, setMeasurement] = useState("in")
-  const [parameter1, setParameter1] = useState()
-  const [parameter2, setParameter2] = useState()
+  const [parameter1, setParameter1] = useState(0)
+  const [parameter2, setParameter2] = useState(0)
 
   return (
     <div className="app">
@@ -17,8 +21,20 @@ function App() {
         parameter2={parameter2}
         setParameter2={setParameter2}
       />
+      <CurrentScreen screen={screen} setScreen={setScreen} />
     </div>
-  );
+  )
 }
+
+const CurrentScreen = memo(({screen, setScreen}) => {
+  switch (screen) {
+    case Screens.Initial:
+      return <InitialScreen setScreen={setScreen}/>
+    case Screens.SketchLibrary:
+      return <SketchLibraryScreen/>
+    default:
+      return <InitialScreen setScreen={setScreen}/>
+  }
+})
 
 export default App;
