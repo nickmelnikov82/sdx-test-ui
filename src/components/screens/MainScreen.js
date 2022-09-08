@@ -1,0 +1,27 @@
+import { memo, useEffect, useRef } from "react";
+
+export const MainScreen = memo(({image, property1, property2}) => {
+  const ref = useRef()
+
+  useEffect(() => {
+    console.log(ref.current.offsetWidth)
+    console.log(ref.current.offsetHeight)
+  }, [ref.current])
+
+  return (
+    <section className="screen bg-[#FFFFFF] flex">
+      <div className="w-1/2 h-full border-solid border-r-[4pt] border-[#1C1D1E] box-border flex justify-center items-center">
+        <img src={image} alt="" ref={ref}/>
+      </div>
+      <div className="w-1/2 h-full flex justify-center items-center">
+        <div className="bg-[#F9F9F9] w-fit px-[10pt] h-fit">
+          <div className="result-text">
+            <p className="text-[70pt] font-bold leading-[70pt]">
+              {property1 + property2}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+})

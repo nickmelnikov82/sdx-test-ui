@@ -42,3 +42,10 @@ textarea:focus, input:focus{
   width: 100vw;
   height: calc(100vh - 53.33px);
 }
+
+.result-text {
+  background: repeating-linear-gradient(-45deg, red 2px, orange 4px, yellow 6px, green 8px, cyan 10px, blue 12px, red 14px);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
