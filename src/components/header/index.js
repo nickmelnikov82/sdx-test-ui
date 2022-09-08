@@ -51,8 +51,12 @@ export const Header = (
             <span className="w-[100pt] items-center">
               parameter 1
             </span>
-            <Input className="w-[30pt] mr-[3pt]" type="number" onChange={(val) => setParameter1(+val)}
-                   value={parameter1} name="parameter1"/>
+            <Input
+              className="w-[30pt] mr-[3pt]"
+              type="number"
+              onChange={(val) => setParameter1(+val)}
+              value={parameter1} name="parameter1"
+            />
             <span>{measurement}</span>
             <span onClick={() => setParameter1(parameter1 + 1)} className="cursor-pointer ml-[3pt] mr-[2pt]">+</span>
             <span onClick={() => setParameter1(parameter1 - 1)} className="cursor-pointer">-</span>
@@ -61,8 +65,12 @@ export const Header = (
             <span className="w-[100pt]">
               parameter 2
             </span>
-            <Input className="w-[30pt] mr-[3pt]" type="number" onChange={(val) => setParameter2(+val)}
-                   value={parameter2} name="parameter2" minValue={0}/>
+            <Input
+              className="w-[30pt] mr-[3pt]"
+              type="number"
+              onChange={(val) => setParameter2(+val)}
+              value={parameter2} name="parameter2"
+            />
             <span>{measurement}</span>
             <span onClick={() => setParameter2(parameter2 + 1)} className="cursor-pointer ml-[3pt] mr-[2pt]">+</span>
             <span onClick={() => setParameter2(parameter2 - 1)} className="cursor-pointer">-</span>
